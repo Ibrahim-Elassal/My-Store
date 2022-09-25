@@ -1,0 +1,16 @@
+<div *ngIf="!loading">
+  <div class="detail-container" *ngFor="let item of productDetails">
+    <img class="product-image" src="{{item.url}}" alt="">
+   <div class="detail-item">
+     <h4> Name: {{item.name}}</h4>
+     <span>Price: {{item.price}}</span> <br>
+     <p>Description: {{item.description}}</p>
+     <input type="number" class="select-input"  [ngModel]="amount" (ngModelChange)="getQuantity($event)" > <br>
+     <button class="btn btn-primary add"  (click)="addToCart(item)">Add to cart</button> <br>
+     <button class=" btn back" routerLink = "/productList"> <i class="fa-regular fa-arrow-left-long"></i> Back to product list</button>
+   </div>
+</div> 
+</div>
+<div class="text-center w-100" *ngIf="loading">
+  <app-spinner></app-spinner>
+</div>
